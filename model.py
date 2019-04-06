@@ -20,7 +20,7 @@ def getData(num_tests, start, type):
     #if not searchAnnotated:
     #    printError("Did not find any annotated files.")
     filesAnnotated =glob.glob(searchAnnotated)
-
+    #just line
     filesRaw=glob.glob(searchRaw)
     filesAnnotated.sort()
     filesRaw.sort()
