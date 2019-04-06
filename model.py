@@ -157,6 +157,7 @@ def eval_model(model):
     return score
 
 #xTest = "../rvygon_data"
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2' #for fixing warning
 output_dir = "res"
 xTest, output_dir = sys.argv[1:]
 os.environ['CITYSCAPES_DATASET'] = xTest
@@ -165,7 +166,7 @@ x_test, yyyyyy, filenames = importBatch(500, 0, 0, 'test', 1)
 x_test = x_test.astype('uint8') 
 with tf.device('/cpu:0'): #device:GPU:1
     config = tf.ConfigProto()
-    config.gpu_options.allow_growth = False
+    config.gpu_options.allow_growth = True
     with tf.Session(config=config) as sess:
         model = load_model('program/unet_140epochs.hdf5', custom_objects={'tversky_loss': tversky_loss})
         #sess.run(tf.global_variables_initializer())
