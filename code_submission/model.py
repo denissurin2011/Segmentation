@@ -20,7 +20,7 @@ def getData(num_tests, start, type):
     #if not searchAnnotated:
     #    printError("Did not find any annotated files.")
     filesAnnotated =glob.glob(searchAnnotated)
-    #just line
+
     filesRaw=glob.glob(searchRaw)
     filesAnnotated.sort()
     filesRaw.sort()
@@ -157,7 +157,6 @@ def eval_model(model):
     return score
 
 #xTest = "../rvygon_data"
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2' #for fixing warning
 output_dir = "res"
 xTest, output_dir = sys.argv[1:]
 os.environ['CITYSCAPES_DATASET'] = xTest
